@@ -1,0 +1,21 @@
+#if !defined(arr)
+#define arr
+
+namespace mylib{
+    template<class T,int x>
+    class array{
+        private:
+            T *p;
+            int s;
+        public:
+            array(){
+                p=new T[x];
+                s=0;
+            }
+            T& operator [](int a){
+                return p[a];
+            }
+    };
+}
+
+#endif

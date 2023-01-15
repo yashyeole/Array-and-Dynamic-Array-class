@@ -1,0 +1,55 @@
+#if !defined(vect)
+#define vect
+
+namespace mylib
+{
+    template<class T> 
+    class vector{
+        private:
+            T *p;
+            int ms,s;
+        public:
+            vector(int x){
+                ms=x;
+                p=new T[ms];
+                s=ms;
+            }
+            vector(){
+                ms=100;
+                p=new T[ms];
+                s=0;
+            }
+            vector(int x,T y){
+                ms=x;
+                p=new T[ms];
+                for(int i=0;i<x;i++) p[i]=y;
+                s=ms;
+            }
+            void push_back(T x){
+                if(s==ms){
+                    T *p1=p;
+                    p=new T[ms+10];
+                    for(int i=0;i<ms;i++) p[i]=p1[i];
+                    ms=ms+10;
+                }
+                p[s++]=x;
+            }
+            T at(int ind){
+                return p[ind];
+            }
+            T& operator[](int x) {
+                return p[x];
+            }
+            int size(){
+                return s;
+            }
+            T& front(){
+                return p[0];
+            }
+            T& back(){
+                return p[s-1];
+            }
+    };   
+}
+
+#endif // vect
