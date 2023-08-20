@@ -2,7 +2,4 @@
 #define mycpplib_h
 #include"arr"
 #include"vect"
-
-
-
 #endif // mycpplib_h
